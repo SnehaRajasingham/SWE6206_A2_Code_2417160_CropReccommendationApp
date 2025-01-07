@@ -1,0 +1,4 @@
+node_modules/
+.env
+serviceAccountKey.json
+crop-recommendation-syst-683a8-firebase-adminsdk-hx7o5-1ea2211bf1.json
