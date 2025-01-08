@@ -30,7 +30,7 @@ app.get("/recommend-crops", async (req, res) => {
   const { avgTemperature, avgHumidity, avgSoilMoisture } =
     await getFirebaseReadings();
 
-  const command = `python test.py ${avgTemperature} ${avgHumidity}`;
+  const command = `C:\\Users\\sneha\\AppData\\Local\\Programs\\Python\\Python312\\python.exe test.py ${avgTemperature} ${avgHumidity}`;
 
   exec(command, (error, stdout, stderr) => {
     if (error) {

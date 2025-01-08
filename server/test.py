@@ -46,7 +46,7 @@ def ensure_dependencies():
         install('pyodbc')
 
 # Path to the saved model
-RF_pkl_filename = os.path.abspath('C:\\Users\\Shahe\\OneDrive\\Desktop\\ET\\server\\RandomForest3.pkl')
+RF_pkl_filename = os.path.abspath('C:\\Users\\sneha\\Desktop\\SWE6206_A2_Code_2417160_CropReccommendationApp\\server\\RandomForest3.pkl')
 
 def recommend_crops(temperature, humidity):
     try:
