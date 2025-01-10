@@ -1,3 +1,6 @@
+// Module Id: SWE6206
+// Assessment Title: Emerging Technologies Emerging Technologies based Industry Solutions
+// Student Id: 2417160
 #include <Arduino.h>
 #include <WiFi.h>
 #include "time.h"
@@ -25,7 +28,7 @@ DHT dht(DHTPIN, DHTTYPE);
 #define API_KEY "AIzaSyAXx5Gj76bLJ0k1vN6PmHBlVU7g8cuUhLM"
 
 // Insert RTDB URL
-#define DATABASE_URL "https://8d1f-2402-d000-8118-16d9-2886-4aaa-8920-671.ngrok-free.app"
+#define DATABASE_URL "https://crop-recommendation-syst-683a8-default-rtdb.asia-southeast1.firebasedatabase.app/"
 
 // Define Firebase Data object
 FirebaseData fbdo;
@@ -90,6 +93,8 @@ void setup() {
   fbdo.setResponseSize(4096);
 
   Serial.println("3");
+  // Set up token status callback
+  config.token_status_callback = tokenStatusCallback;
 
   // Assign the maximum retry for token generation
   config.max_token_generation_retry = 5;
@@ -113,8 +118,8 @@ void setup() {
 
 void loop() {
   // Read humidity and temperature from DHT sensor
-  float h = 60.00f; //dht.readHumidity();
-  float t = 40.00f; //dht.readTemperature();
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
 
   // Read and map soil moisture
   int sm = analogRead(SM);
@@ -157,4 +162,4 @@ void loop() {
       Serial.println(fbdo.errorReason());
     }
   }
-}
+} 
